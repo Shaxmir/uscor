@@ -1,0 +1,21 @@
+.block_uscor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.block_min{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+img{
+    padding: 5px;
+
+}
+input{
+    margin-left: 10px;
+    padding: 5px 3px;
+    width: 30px;
+    border-radius: 10px;
+    border: 1px solid #4a4a4a;
+}

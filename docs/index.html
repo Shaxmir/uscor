@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Элемент, содержащий число пользователя --> 
+<!-- <input type="text" id="numberUser"> -->
+<div class="block_uscor">
+    <div class="block_min"><img src="uscor.png" alt="" width="20px" height="20px"> 1 минута - <input value="0" type="number" id="oneMin"><br></div>
+    <div class="block_min"><img src="uscor.png" alt="" width="20px" height="20px"> 5 минута - <input value="0" type="number" id="fiveMin"><br></div>
+    <div class="block_min"><img src="uscor.png" alt="" width="20px" height="20px"> 10 минута - <input value="0" type="number" id="tenMin"><br></div>
+    <div class="block_min"><img src="uscor.png" alt="" width="20px" height="20px"> 15 минута - <input value="0" type="number" id="twFiveMin"><br></div>
+    <div class="block_min"><img src="uscor.png" alt="" width="20px" height="20px"> 30 минута - <input value="0" type="number" id="thirtyMin"><br></div>
+    <div class="block_min"><img src="uscor.png" alt="" width="20px" height="20px"> 60 минута - <input value="0" type="number" id="sixMin"><br></div>
+    <div class="block_min"><img src="uscor.png" alt="" width="20px" height="20px"> 3(120мин) часа - <input value="0" type="number" id="threeHour"><br></div>
+    <div class="block_min"><img src="uscor.png" alt="" width="20px" height="20px"> 8(480мин) часов - <input value="0" type="number" id="elevHour"><br></div>
+    <div class="block_min"><img src="uscor.png" alt="" width="20px" height="20px"> 15(900мин) часов - <input value="0" type="number" id="twFiveHour"><br></div>
+    <div class="block_min"><img src="uscor.png" alt="" width="20px" height="20px"> 24(1440мин) часов - <input value="0" type="number" id="twentyFourHour"><br></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Информация о случайном числе -->
+<!-- <p>"Потолок" случайного числа: <span id="maxRandom"></span></p>-->
+<p>Всего минут: <span id="randomNumber"></span></p> <br>
+<p>Всего Часов: <span id="randomNumberTwo"></span></p> <br>
+<p>Всего Дней: <span id="randomNumberThree"></span></p> <br>
+<!-- Кнопка, выводящая случайное число -->
+<button id="randomButton">Посчитать</button>
+
+<script>
+// после загрузки DOM дерева страницы
+document.addEventListener("DOMContentLoaded", function(){
+  //получить элемент кнопку (randomButton)
+  var randomButton = document.getElementById("randomButton");
+  //при нажатию на кнопку выполнять следующее...
+  document.addEventListener("click", function(){
+    //получить число пользователя (потолок случайного числа)
+    var oneMin = parseInt(document.getElementById("oneMin").value);
+    var fiveMin = parseInt(document.getElementById("fiveMin").value);
+    var tenMin = parseInt(document.getElementById("tenMin").value);
+    var twFiveMin = parseInt(document.getElementById("twFiveMin").value);
+    var thirtyMin = parseInt(document.getElementById("thirtyMin").value);
+    var sixMin = parseInt(document.getElementById("sixMin").value);
+    var threeHour = parseInt(document.getElementById("threeHour").value);
+    var elevHour = parseInt(document.getElementById("elevHour").value);
+    var twFiveHour = parseInt(document.getElementById("twFiveHour").value);
+    var twentyFourHour = parseInt(document.getElementById("twentyFourHour").value);
+
+    summ = (1*oneMin)+(5*fiveMin)+(10*tenMin)+(15*twFiveMin)+(30*thirtyMin)+(60*sixMin)+(120*threeHour)+(480*elevHour)+(900*twFiveHour)+(1440*twentyFourHour);
+    hours = Math.round(summ/60);
+    day = Math.round(hours/24);
+    //вывести потолок случайного числа
+    // document.getElementById("maxRandom").textContent=numberUser;
+    // генерируем случайное число
+    // randomNumber = Math.round(Math.random()*numberUser);
+    //вывести случайное число
+    document.getElementById("randomNumber").textContent=summ;
+    document.getElementById("randomNumberTwo").textContent=hours;
+    document.getElementById("randomNumberThree").textContent=day;
+  });
+});
+</script>
+</body>
+</html>
